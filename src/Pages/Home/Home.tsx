@@ -52,18 +52,17 @@ const Home: React.FC = () => {
         <>
             <Header
                 style={{
-                    position: 'sticky',
-                    top: 0,
-                    zIndex: 1,
-                    width: '100%',
                     display: 'flex',
-                    alignItems: 'center',
+                    alignItems: 'flex-start',
+                    margin:0,
+                    padding : 0,
+                    paddingLeft:"15px"
                 }}
             >
                 <Space split={<Divider type="vertical" />} align="center">
 
                     <Image
-                        width={200}
+                        width={150}
                         src={Logo}
                         preview={false}
                     />
@@ -77,7 +76,7 @@ const Home: React.FC = () => {
                 </Space>
 
             </Header>
-            <Content style={{ width: '100%' }}>
+            <Content style={{padding:"30px"}}>
 
                 {selectedKey === 'stream' ? (
                     <BLE

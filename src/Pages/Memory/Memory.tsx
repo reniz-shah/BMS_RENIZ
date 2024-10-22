@@ -201,14 +201,14 @@ const Memory: React.FC<IBleProps> = ({
         const writeService = await service?.getPrimaryService("dd8c1300-3ae2-5c42-b8be-96721cd710fe");
         const writeChar = await writeService?.getCharacteristic("dd8c1307-3ae2-5c42-b8be-96721cd710fe");
         console.log("Encoded Format : ", uint8);
-        
+
         let stringToDisplay = ""
         await writeChar?.writeValue(uint8);
         const val = await writeChar?.readValue()
         const data = new Uint8Array(val?.buffer || new ArrayBuffer(0));
-        
+
         for (let index = 0; index < data.length; index++) {
-            stringToDisplay+= (data[index]);
+            stringToDisplay += (data[index]);
         }
 
         console.log(stringToDisplay, "----------> stringToDisplay");
@@ -223,16 +223,15 @@ const Memory: React.FC<IBleProps> = ({
 
             <Layout>
                 <Content style={contentStyle}>
-                    <Title>{message}</Title>
-                    <Space wrap={true} size="large">
-                        <Button type="primary" size={'large'} onClick={() => setIsModalOpen(true)}>Enter Details</Button>
-                        <Button type="primary" size={'large'} onClick={connectToDevice}>Connect to Device</Button>
-                        <Button type="primary" size={'large'} onClick={getData}>Start Reading</Button>
-                        <Button type="primary" size={'large'} onClick={stopTimer}>Download File</Button>
-
-                        <Button type="primary" size={'large'} onClick={demo}>Test</Button>
-
-                    </Space>
+                    <Title level={2}>{message}</Title>
+                    <br />
+                    <div style={{display:'flex', flexWrap:'wrap', gap:'10px', justifyContent:'center'}}>
+                        <Button type="primary" onClick={() => setIsModalOpen(true)}>Enter Details</Button>
+                        <Button type="primary" onClick={connectToDevice}>Connect to Device</Button>
+                        <Button type="primary" onClick={getData}>Start Reading</Button>
+                        <Button type="primary" onClick={stopTimer}>Download File</Button>
+                        {/* <Button type="primary" size={'large'} onClick={demo}>Test</Button> */}
+                    </div>
                     {device && <p>Connected to device: {device.name}</p>}
                     <br /><br />
 

@@ -121,15 +121,15 @@ const BLE: React.FC<IBleProps> = ({
 
             <Layout>
                 <Content style={contentStyle}>
-                    <Title>{message}</Title>
+                    <Title level={2}>{message}</Title>
                     <Space wrap={true} size="large">
                         <Button type="primary" size={'large'} onClick={connectToDevice}>Connect to Device</Button>
                         {device != null ? (
                             <>
                                 {isReading ? (
-                                        <Button type="primary" size={'large'} onClick={stopTimer}>{"Stop Reading"}</Button>
+                                        <Button type="primary" onClick={stopTimer}>{"Stop Reading"}</Button>
                                 ) : (
-                                    <Button type="primary" size={'large'} onClick={readCharacteristic}>{"Start Reading"}</Button>
+                                    <Button type="primary" onClick={readCharacteristic}>{"Start Reading"}</Button>
                                 )}
                             </>
                         ) : null}
@@ -137,12 +137,12 @@ const BLE: React.FC<IBleProps> = ({
                     {device && <p>Connected to device: {device.name}</p>}
                     {characteristicValue && characteristicValue.length > 0 &&
                         <>
-                            <Title level={3}> Date Time : {unixToTimestamp(characteristicValue[0])}  </Title>
-                            <Title level={3}> Battery Voltage : {characteristicValue[1]} V </Title>
-                            <Title level={3}> Battery Current : {characteristicValue[2]} Amp </Title>
-                            <Title level={3}> Battery Temprature 1 : {characteristicValue[3]} °C </Title>
-                            <Title level={3}> Battery Temprature 2 : {characteristicValue[4]} °F </Title>
-                            <Title level={3}> Counter : {characteristicValue[5]} </Title>
+                            <Title level={2}> Date Time : {unixToTimestamp(characteristicValue[0])}  </Title>
+                            <Title level={2}> Battery Voltage : {characteristicValue[1]} V </Title>
+                            <Title level={2}> Battery Current : {characteristicValue[2]} Amp </Title>
+                            <Title level={2}> Battery Temprature 1 : {characteristicValue[3]} °C </Title>
+                            <Title level={2}> Battery Temprature 2 : {characteristicValue[4]} °F </Title>
+                            <Title level={2}> Counter : {characteristicValue[5]} </Title>
                         </>
                     }
                 </Content>

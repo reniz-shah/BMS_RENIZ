@@ -3,7 +3,9 @@ import Home from '../Home/Home';
 function App() {
   return (
     <>
-      <Home/>
+      <div style={{ height: '100vh', width: '100vw' }}>
+        <Home />
+      </div>
     </>
   );
 }
