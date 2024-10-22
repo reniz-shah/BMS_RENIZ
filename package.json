@@ -2,7 +2,7 @@
   "name": "reniz-bms",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://reniz-shah.github.io/BMS",
+  "homepage": "https://reniz-shah.github.io/BMS_RENIZ",
   "dependencies": {
     "@capacitor/app": "5.0.7",
     "@capacitor/core": "5.7.4",
