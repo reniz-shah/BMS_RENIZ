@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/BMS_RENIZ/static/css/main.4152c3d3.css",
-    "main.js": "/BMS_RENIZ/static/js/main.f427cf0d.js",
+    "main.js": "/BMS_RENIZ/static/js/main.5764eb16.js",
     "static/js/453.cc4ba4ed.chunk.js": "/BMS_RENIZ/static/js/453.cc4ba4ed.chunk.js",
     "index.html": "/BMS_RENIZ/index.html",
     "main.4152c3d3.css.map": "/BMS_RENIZ/static/css/main.4152c3d3.css.map",
-    "main.f427cf0d.js.map": "/BMS_RENIZ/static/js/main.f427cf0d.js.map",
+    "main.5764eb16.js.map": "/BMS_RENIZ/static/js/main.5764eb16.js.map",
     "453.cc4ba4ed.chunk.js.map": "/BMS_RENIZ/static/js/453.cc4ba4ed.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.4152c3d3.css",
-    "static/js/main.f427cf0d.js"
+    "static/js/main.5764eb16.js"
   ]
 }
