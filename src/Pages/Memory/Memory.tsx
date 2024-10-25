@@ -89,8 +89,6 @@ const Memory: React.FC<IBleProps> = ({
         }
         try {
             if (service) {
-                console.log("Trying to write value : ", newValue);
-
                 await writeChar?.writeValue(new TextEncoder().encode(newValue));
                 console.log("Value written successfully!!! : ", newValue);
             }
@@ -118,11 +116,6 @@ const Memory: React.FC<IBleProps> = ({
                         const val = (event.target as BluetoothRemoteGATTCharacteristic).value?.buffer;
                         if (val) {
                             const data = new TextDecoder().decode(val);
-                            // if (data === "") {
-                            //     setisComplete(true)
-                            //     setLoader(false)
-                            // }
-                            console.log(data, "----------------> data");
                             setFinalData(finalData => finalData + data + "****")
                         }
                     });
@@ -190,7 +183,6 @@ const Memory: React.FC<IBleProps> = ({
 
 
     const demo = async () => {
-        console.log("input string : ", command);
         const commadArray = command.split(",")
         const uint8 = new Uint8Array(8);
         for (let index = 0; index < commadArray.length; index++) {
@@ -200,7 +192,6 @@ const Memory: React.FC<IBleProps> = ({
         const service = await device?.gatt?.connect();
         const writeService = await service?.getPrimaryService("dd8c1300-3ae2-5c42-b8be-96721cd710fe");
         const writeChar = await writeService?.getCharacteristic("dd8c1307-3ae2-5c42-b8be-96721cd710fe");
-        console.log("Encoded Format : ", uint8);
 
         let stringToDisplay = ""
         await writeChar?.writeValue(uint8);
@@ -210,12 +201,7 @@ const Memory: React.FC<IBleProps> = ({
         for (let index = 0; index < data.length; index++) {
             stringToDisplay += (data[index]);
         }
-
-        console.log(stringToDisplay, "----------> stringToDisplay");
-
-        // var string = data.toString;
         setReniz(stringToDisplay)
-        console.log("Read data === ", stringToDisplay);
     }
 
     return (
@@ -225,12 +211,12 @@ const Memory: React.FC<IBleProps> = ({
                 <Content style={contentStyle}>
                     <Title level={2}>{message}</Title>
                     <br />
-                    <div style={{display:'flex', flexWrap:'wrap', gap:'10px', justifyContent:'center'}}>
+                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', justifyContent: 'center' }}>
                         <Button type="primary" onClick={() => setIsModalOpen(true)}>Enter Details</Button>
                         <Button type="primary" onClick={connectToDevice}>Connect to Device</Button>
                         <Button type="primary" onClick={getData}>Start Reading</Button>
                         <Button type="primary" onClick={stopTimer}>Download File</Button>
-                        {/* <Button type="primary" size={'large'} onClick={demo}>Test</Button> */}
+                        <Button type="primary" size={'large'} onClick={demo}>Test</Button>
                     </div>
                     {device && <p>Connected to device: {device.name}</p>}
                     <br /><br />
